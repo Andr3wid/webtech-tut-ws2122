@@ -1,0 +1,56 @@
+let testButton = document.querySelector('#test-button');
+
+function add(a, b) {
+    return a + b;
+}
+
+function mult(a, b) {
+    return a * b;
+}
+
+function curriedAdd(a, b) {
+    if(b === undefined) {
+        return (b) => {
+            return a + b;
+        }
+    }
+
+    return a + b;
+}
+
+function calcAndLog(a, b, calculation) {
+    const result = calculation(a, b);
+    console.log(`Function ${calculation.name} yielded result ${result}`);
+    return result;
+}
+
+
+// function Person(name, age, height) {
+    // this.name = name;
+    // this.age = age;
+    // this.height = height;
+// }
+
+// Person.prototype.university = 'AAU';
+
+// let p = new Person('Andy', 22, 190);
+// console.log(p.university);
+
+class Person {
+    fav_color = 'red';
+
+    constructor(name, age, height) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+    }
+
+    introduce = () => {
+        console.log(`Hello my name is ${this.name} and I am ${this.age} years old.`);
+    }
+}
+
+let p = new Person('Andy', 22, 190);
+console.log(p);
+
+testButton.addEventListener('click', p.introduce);
